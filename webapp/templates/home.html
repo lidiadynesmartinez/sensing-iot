@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block sidebar %}
+<ul class="nav">
+  <li class="nav-item active">
+    <a class="nav-link" href="{{ url_for('home') }}">
+      <i class="material-icons">home</i>
+      <p>Home</p>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('login') }}">
+      <i class="material-icons">person</i>
+      <p>Login</p>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('register') }}">
+      <i class="material-icons">content_paste</i>
+      <p>Register</p>
+    </a>
+  </li>
+</ul>
+{% endblock sidebar %}
+
+{% block page %}Welcome to WeatherIt!{% endblock page %}
+
+{% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="card text-center">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">The App that shows you how you can better market your products</h4>
+            <p class="card-category">For more information read on!</p>
+          </div>
+          <div class="card-body">
+            <p></p>
+            <h4 class="card-title">What is WeatherIt?</h4>
+            <p></p>
+            <p class="card-text">WeatherIt allows users to search for items that they are interested in marketing. The system then uses Google search data and past weather data to plot useful graphs that can show users how the interest in an item varies over time and how linked this is to the weather. With access to this information, users will be better informed and will be able to market different products at different times of the year to better reach potential customers and improve profits.</p>
+            <p class="card-text"></p>
+            <p></p>
+            <p class="card-text">Sound good? Join WeatherIt to boost your sales today!</p>
+            <a href="{{ url_for('register') }}" class="btn btn-primary">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

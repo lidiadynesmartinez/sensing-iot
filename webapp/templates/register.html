@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+
+{% block sidebar %}
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('home') }}">
+      <i class="material-icons">home</i>
+      <p>Home</p>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('login') }}">
+      <i class="material-icons">person</i>
+      <p>Login</p>
+    </a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" href="{{ url_for('register') }}">
+      <i class="material-icons">content_paste</i>
+      <p>Register</p>
+    </a>
+  </li>
+</ul>
+{% endblock sidebar %}
+
+{% block page %}Registration{% endblock page %}
+
+{% block content %}
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Join Today!</h4>
+            <p class="card-category">Please fill out your details below</p>
+          </div>
+          <div class="card-body">
+            <form method="POST" action="">
+              {{  form.hidden_tag() }}
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    {{ form.username.label(class="bmd-label-floating") }}
+                    {% if form.username.errors %}
+                    {{ form.username(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.username.errors %}
+                      <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.username(class="form-control") }}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    {{ form.email.label(class="bmd-label-floating") }}
+                    {% if form.email.errors %}
+                    {{ form.email(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.email.errors %}
+                      <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.email(class="form-control") }}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    {{ form.password.label(class="bmd-label-floating") }}
+                    {% if form.password.errors %}
+                    {{ form.password(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.password.errors %}
+                      <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.password(class="form-control") }}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    {{ form.confirm_password.label(class="bmd-label-floating") }}
+                    {% if form.confirm_password.errors %}
+                    {{ form.confirm_password(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.confirm_password.errors %}
+                      <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.confirm_password(class="form-control") }}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                    <label></label>
+                  </div>
+                </div>
+              <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    {{ form.submit(class="btn btn-primary") }}
+                  </div>
+                </div>
+                <div class="col-md-4"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <label></label>
+                </div>
+              </div>
+              <div class="clearfix"></div>
+            </form>
+            <div class="row">
+              <div class="container-fluid">
+                <div class="tim-typo">
+                  <span class="tim-note">Already Have An Account?</span>
+                  <a class="ml-1" href="{{ url_for('login') }}">Sign Up Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
